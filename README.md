@@ -3,7 +3,7 @@
 Aplicación web para **registrar y consultar solicitudes de soporte técnico** de un laboratorio (fallas de equipos, internet, software u otras). Proyecto final de Computación en la nube — Universidad Cooperativa de Colombia.
 
 - **Aplicación pública:** `https://<tu-servicio>.onrender.com` ← reemplazar por la URL de Render
-- **Repositorio:** `https://github.com/<usuario>/<repositorio>`
+- **Repositorio:** https://github.com/MADussan/mesa-ayuda-ucc
 - **Imagen Docker:** `<usuario-dockerhub>/mesa-ayuda:1.0`
 
 > Es una demostración pública: usa **solo datos ficticios**.
@@ -67,8 +67,8 @@ mesa-ayuda/
 ## Ejecutar en local (sin Docker)
 
 ```cmd
-git clone https://github.com/<usuario>/<repositorio>.git
-cd <repositorio>
+git clone https://github.com/MADussan/mesa-ayuda-ucc.git
+cd mesa-ayuda-ucc
 npm install
 npm start
 ```
