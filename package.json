@@ -1,0 +1,22 @@
+{
+  "name": "mesa-ayuda",
+  "version": "1.0.0",
+  "description": "Mesa de ayuda web para registrar y consultar solicitudes de soporte técnico",
+  "main": "server.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "node --test",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.22.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
