@@ -2,7 +2,7 @@
 
 Aplicación web para **registrar y consultar solicitudes de soporte técnico** de un laboratorio (fallas de equipos, internet, software u otras). Proyecto final de Computación en la nube — Universidad Cooperativa de Colombia.
 
-- **Aplicación pública:** `https://<tu-servicio>.onrender.com` ← reemplazar por la URL de Render
+- **Aplicación pública:** https://mesa-ayuda-ucc.onrender.com
 - **Repositorio:** https://github.com/MADussan/mesa-ayuda-ucc
 - **Imagen Docker:** `<usuario-dockerhub>/mesa-ayuda:1.0`
 
