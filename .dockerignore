@@ -1,0 +1,13 @@
+node_modules
+npm-debug.log
+data
+.git
+.gitignore
+docs
+tests
+*.md
+.env
+.env.*
+Dockerfile
+.dockerignore
+render.yaml
