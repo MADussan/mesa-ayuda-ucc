@@ -4,7 +4,7 @@ Aplicación web para **registrar y consultar solicitudes de soporte técnico** d
 
 - **Aplicación pública:** https://mesa-ayuda-ucc.onrender.com
 - **Repositorio:** https://github.com/MADussan/mesa-ayuda-ucc
-- **Imagen Docker:** `<usuario-dockerhub>/mesa-ayuda:1.0`
+- **Imagen Docker:** [madussan/mesa-ayuda:1.0](https://hub.docker.com/r/madussan/mesa-ayuda)
 
 > Es una demostración pública: usa **solo datos ficticios**.
 
@@ -127,8 +127,8 @@ No ejecutar `docker volume rm mesa-datos` durante la prueba: eso sí borra los d
 
 ```cmd
 docker login
-docker tag mesa-ayuda:1.0 <usuario-dockerhub>/mesa-ayuda:1.0
-docker push <usuario-dockerhub>/mesa-ayuda:1.0
+docker tag mesa-ayuda:1.0 madussan/mesa-ayuda:1.0
+docker push madussan/mesa-ayuda:1.0
 ```
 
 ## Despliegue en la nube (Render)
