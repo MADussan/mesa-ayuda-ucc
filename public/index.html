@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Registrar solicitud · Mesa de ayuda</title>
+    <meta name="description" content="Registra una solicitud de soporte técnico del laboratorio: equipos, internet o software." />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="/fonts/instrument-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <a class="salto" href="#contenido">Saltar al contenido</a>
+    <svg width="0" height="0" class="visualmente-oculto" aria-hidden="true">
+      <symbol id="i-logo" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" /><circle cx="12" cy="12" r="4" /><path d="m5.3 5.3 3.9 3.9M14.8 14.8l3.9 3.9M14.8 9.2l3.9-3.9M5.3 18.7l3.9-3.9" /></symbol>
+      <symbol id="i-equipo" viewBox="0 0 24 24"><rect x="2.5" y="3.5" width="19" height="13" rx="2" /><path d="M8 20.5h8M12 16.5v4" /></symbol>
+      <symbol id="i-internet" viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14 0M1.5 9a16 16 0 0 1 21 0M8.5 16.1a6 6 0 0 1 7 0M12 20h.01" /></symbol>
+      <symbol id="i-software" viewBox="0 0 24 24"><rect x="2.5" y="4" width="19" height="16" rx="2" /><path d="M2.5 8.5h19M6.5 6.25h.01M9.5 6.25h.01M9 13l-2 2 2 2M15 13l2 2-2 2" /></symbol>
+      <symbol id="i-otro" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" /><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01" /></symbol>
+      <symbol id="i-alerta" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /><path d="M12 7.5v5M12 16.5h.01" /></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></symbol>
+      <symbol id="i-cargando" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-6.2-8.56" /></symbol>
+    </svg>
+
+    <header class="barra">
+      <div class="barra__contenido">
+        <a class="marca" href="/">
+          <svg class="icono" aria-hidden="true"><use href="#i-logo" /></svg>
+          <span class="marca__texto">
+            <span class="marca__nombre">Mesa de ayuda</span>
+            <span class="marca__lugar">Laboratorio de sistemas</span>
+          </span>
+        </a>
+        <nav class="nav" aria-label="Principal">
+          <a href="/" aria-current="page">Registrar solicitud</a>
+          <a href="/consulta">Consultar solicitudes</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="contenido">
+      <div class="encabezado">
+        <h1>Reportar una falla</h1>
+        <p>Cuéntanos qué está fallando. Al registrar la solicitud recibes un número para hacerle seguimiento.</p>
+      </div>
+
+      <div class="registro">
+        <div>
+          <form class="formulario" id="formulario" novalidate>
+            <div class="resumen" id="resumen" role="alert" tabindex="-1" hidden>
+              <svg class="icono" aria-hidden="true"><use href="#i-alerta" /></svg>
+              <div>
+                <strong id="resumen-titulo">Revisa los campos marcados.</strong>
+                <ul id="resumen-lista"></ul>
+              </div>
+            </div>
+
+            <div class="campo">
+              <label class="etiqueta" for="nombre">Nombre del solicitante</label>
+              <input class="entrada" id="nombre" name="nombre" type="text" autocomplete="name" maxlength="100" required aria-describedby="error-nombre" />
+              <p class="error-campo" id="error-nombre"></p>
+            </div>
+
+            <div class="campo">
+              <label class="etiqueta" for="correo">Correo electrónico</label>
+              <input class="entrada" id="correo" name="correo" type="email" autocomplete="email" inputmode="email" maxlength="254" placeholder="nombre@dominio.com" required aria-describedby="ayuda-correo error-correo" />
+              <span class="ayuda" id="ayuda-correo">Solo lo ve el equipo de soporte; no aparece en la consulta pública.</span>
+              <p class="error-campo" id="error-correo"></p>
+            </div>
+
+            <fieldset class="campo" id="campo-tipo" aria-describedby="error-tipo">
+              <legend class="etiqueta">Tipo de problema</legend>
+              <div class="opciones opciones--tipo">
+                <label class="opcion"><input type="radio" name="tipo" value="Equipo" id="tipo" /><span><svg class="icono" aria-hidden="true"><use href="#i-equipo" /></svg>Equipo</span></label>
+                <label class="opcion"><input type="radio" name="tipo" value="Internet" /><span><svg class="icono" aria-hidden="true"><use href="#i-internet" /></svg>Internet</span></label>
+                <label class="opcion"><input type="radio" name="tipo" value="Software" /><span><svg class="icono" aria-hidden="true"><use href="#i-software" /></svg>Software</span></label>
+                <label class="opcion"><input type="radio" name="tipo" value="Otro" /><span><svg class="icono" aria-hidden="true"><use href="#i-otro" /></svg>Otro</span></label>
+              </div>
+              <p class="error-campo" id="error-tipo"></p>
+            </fieldset>
+
+            <div class="campo">
+              <label class="etiqueta" for="descripcion">Descripción</label>
+              <textarea class="entrada" id="descripcion" name="descripcion" maxlength="1000" required placeholder="Ej.: El PC 12 no tiene conexión a internet desde esta mañana." aria-describedby="contador error-descripcion"></textarea>
+              <div class="descripcion__pie">
+                <p class="error-campo" id="error-descripcion"></p>
+                <span class="contador" id="contador" aria-live="polite">0 caracteres · mínimo 15</span>
+              </div>
+            </div>
+
+            <fieldset class="campo" id="campo-prioridad" aria-describedby="ayuda-prioridad error-prioridad">
+              <legend class="etiqueta">Prioridad</legend>
+              <div class="opciones opciones--prioridad">
+                <label class="opcion"><input type="radio" name="prioridad" value="Baja" id="prioridad" /><span><i class="punto punto--Baja"></i>Baja</span></label>
+                <label class="opcion"><input type="radio" name="prioridad" value="Media" /><span><i class="punto punto--Media"></i>Media</span></label>
+                <label class="opcion"><input type="radio" name="prioridad" value="Alta" /><span><i class="punto punto--Alta"></i>Alta</span></label>
+              </div>
+              <span class="ayuda" id="ayuda-prioridad">Alta: impide trabajar. Media: se puede trabajar con dificultad. Baja: molestia menor.</span>
+              <p class="error-campo" id="error-prioridad"></p>
+            </fieldset>
+
+            <div class="acciones">
+              <button class="boton boton--primario" type="submit" id="enviar">Registrar solicitud</button>
+            </div>
+          </form>
+
+          <section class="confirmacion" id="confirmacion" aria-labelledby="confirmacion-titulo" tabindex="-1" hidden>
+            <p class="confirmacion__estado">
+              <svg class="icono" aria-hidden="true"><use href="#i-check" /></svg>
+              Solicitud registrada
+            </p>
+            <h2 id="confirmacion-titulo">Tu número de solicitud es <span class="confirmacion__id" id="confirmacion-id"></span></h2>
+            <p class="confirmacion__detalle" id="confirmacion-detalle"></p>
+            <div class="acciones">
+              <button class="boton boton--primario" type="button" id="otra">Registrar otra solicitud</button>
+              <a class="boton boton--secundario" href="/consulta">Ver todas las solicitudes</a>
+            </div>
+          </section>
+        </div>
+
+        <aside class="lateral" aria-labelledby="lateral-titulo">
+          <h2 id="lateral-titulo">Qué pasa después</h2>
+          <ol class="pasos">
+            <li><span>La solicitud queda guardada con fecha y hora, y recibes un número como <strong>SOL-0001</strong>.</span></li>
+            <li><span>El equipo de soporte la ve en la consulta y la atiende según su prioridad.</span></li>
+            <li><span>Si te preguntan por el caso, da tu número de solicitud.</span></li>
+          </ol>
+          <p class="aviso">Esta es una aplicación de demostración pública. Usa nombres y correos ficticios.</p>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="pie"><p>Proyecto final · Computación en la nube · Universidad Cooperativa de Colombia</p></footer>
+    <script src="/registro.js" defer></script>
+  </body>
+</html>
